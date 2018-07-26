@@ -1,4 +1,4 @@
-# DP: Changes for the Linaro 7-2018.01 snapshot (documentation).
+# DP: Changes for the Linaro 7-2018.04 snapshot (documentation).
 
 --- a/src/gcc/doc/install.texi
 +++ b/src/gcc/doc/install.texi
@@ -178,4 +178,3 @@
  @node Stack Arguments
  @subsection Passing Function Arguments on the Stack
  @cindex arguments on stack
-

@@ -1,8 +1,8 @@
-# DP: Changes for the Linaro 7-2018.01 snapshot.
+# DP: Changes for the Linaro 7-2018.04 snapshot.
 
 MSG=$(git log origin/linaro/gcc-7-branch --format=format:"%s" -n 1 --grep "Merge branches"); SVN=${MSG##* }; git log origin/gcc-7-branch --format=format:"%H" -n 1 --grep "gcc-7-branch@${SVN%.}"
 
-LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505dbfdbf62b7c59d5995c07bf6c462d4 \
+LANG=C git diff --no-renames b2b69ab68bc9da935ca6cce695f7aae5bee1503b 9fd777e570c1f99ada82b1dfc1147e7009a0f7b9 \
  | egrep -v '^(diff|index) ' \
  | filterdiff --strip=1 --addoldprefix=a/src/  --addnewprefix=b/src/ \
  | sed 's,a/src//dev/null,/dev/null,'
@@ -10,7 +10,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
 --- /dev/null
 +++ b/src/gcc/LINARO-VERSION
 @@ -0,0 +1 @@
-+7.2-2018.02~dev
++7.3-2018.04~dev
 --- a/src/gcc/Makefile.in
 +++ b/src/gcc/Makefile.in
 @@ -845,10 +845,12 @@ BASEVER     := $(srcdir)/BASE-VER  # 4.x.y
@@ -430,6 +430,15 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
  
  static enum aarch64_type_qualifiers
  aarch64_types_binop_imm_p_qualifiers[SIMD_MAX_BUILTIN_ARGS]
+@@ -754,7 +759,7 @@ aarch64_init_simd_builtins (void)
+   for (i = 0; i < ARRAY_SIZE (aarch64_simd_builtin_data); i++, fcode++)
+     {
+       bool print_type_signature_p = false;
+-      char type_signature[SIMD_MAX_BUILTIN_ARGS] = { 0 };
++      char type_signature[SIMD_MAX_BUILTIN_ARGS + 1] = { 0 };
+       aarch64_simd_builtin_datum *d = &aarch64_simd_builtin_data[i];
+       char namebuf[60];
+       tree ftype = NULL;
 --- a/src/gcc/config/aarch64/aarch64-c.c
 +++ b/src/gcc/config/aarch64/aarch64-c.c
 @@ -106,6 +106,7 @@ aarch64_update_cpp_builtins (cpp_reader *pfile)
@@ -849,7 +858,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
  ;; Max/Min operations.
  (define_insn "<su><maxmin><mode>3"
   [(set (match_operand:VDQ_BHSI 0 "register_operand" "=w")
-@@ -2806,38 +2924,10 @@
+@@ -2815,38 +2933,10 @@
     (match_operand:VDC 2 "register_operand")]
    "TARGET_SIMD"
  {
@@ -2779,7 +2788,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
  (define_insn "*sub_<shift>_<mode>"
    [(set (match_operand:GPI 0 "register_operand" "=r")
  	(minus:GPI (match_operand:GPI 3 "register_operand" "r")
-@@ -3881,6 +3864,22 @@
+@@ -3882,6 +3865,22 @@
    [(set_attr "type" "logics_reg,logics_imm")]
  )
  
@@ -2802,7 +2811,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
  (define_insn "*and<mode>3nr_compare0_zextract"
    [(set (reg:CC_NZ CC_REGNUM)
  	(compare:CC_NZ
-@@ -3916,6 +3915,26 @@
+@@ -3917,6 +3916,26 @@
    [(set_attr "type" "logics_shift_imm")]
  )
  
@@ -2829,7 +2838,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
  ;; -------------------------------------------------------------------
  ;; Shifts
  ;; -------------------------------------------------------------------
-@@ -4997,6 +5016,18 @@
+@@ -4998,6 +5017,18 @@
    [(set_attr "type" "f_minmax<stype>")]
  )
  
@@ -2848,7 +2857,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
  ;; For copysign (x, y), we want to generate:
  ;;
  ;;   LDR d2, #(1 << 63)
-@@ -5030,14 +5061,16 @@
+@@ -5031,14 +5062,16 @@
     (match_operand:SF 2 "register_operand")]
    "TARGET_FLOAT && TARGET_SIMD"
  {
@@ -3387,7 +3396,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
  /* T (T, T, immediate).  */
  static enum arm_type_qualifiers
  arm_ternop_imm_qualifiers[SIMD_MAX_BUILTIN_ARGS]
-@@ -3058,15 +3072,15 @@ arm_expand_builtin (tree exp,
+@@ -3060,15 +3074,15 @@ arm_expand_builtin (tree exp,
      }
  
    for (i = 0, d = bdesc_2arg; i < ARRAY_SIZE (bdesc_2arg); i++, d++)
@@ -3683,7 +3692,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
  
  static void
  cmse_nonsecure_call_clear_caller_saved (void)
-@@ -19111,7 +19126,7 @@ arm_compute_static_chain_stack_bytes (void)
+@@ -19116,7 +19131,7 @@ arm_compute_static_chain_stack_bytes (void)
  
  /* Compute a bit mask of which registers need to be
     saved on the stack for the current function.
@@ -3692,7 +3701,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
  
  static unsigned long
  arm_compute_save_reg_mask (void)
-@@ -20750,12 +20765,25 @@ any_sibcall_could_use_r3 (void)
+@@ -20755,12 +20770,25 @@ any_sibcall_could_use_r3 (void)
    alignment.  */
  
  
@@ -3720,7 +3729,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
  {
    struct arm_stack_offsets *offsets;
    unsigned long func_type;
-@@ -20766,9 +20794,6 @@ arm_get_frame_offsets (void)
+@@ -20771,9 +20799,6 @@ arm_get_frame_offsets (void)
  
    offsets = &cfun->machine->stack_offsets;
  
@@ -3730,7 +3739,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
    /* Initially this is the size of the local variables.  It will translated
       into an offset once we have determined the size of preceding data.  */
    frame_size = ROUND_UP_WORD (get_frame_size ());
-@@ -20833,7 +20858,7 @@ arm_get_frame_offsets (void)
+@@ -20838,7 +20863,7 @@ arm_get_frame_offsets (void)
      {
        offsets->outgoing_args = offsets->soft_frame;
        offsets->locals_base = offsets->soft_frame;
@@ -3739,7 +3748,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
      }
  
    /* Ensure SFP has the correct alignment.  */
-@@ -20909,8 +20934,6 @@ arm_get_frame_offsets (void)
+@@ -20914,8 +20939,6 @@ arm_get_frame_offsets (void)
  	offsets->outgoing_args += 4;
        gcc_assert (!(offsets->outgoing_args & 7));
      }
@@ -3748,7 +3757,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
  }
  
  
-@@ -21544,7 +21567,7 @@ arm_expand_prologue (void)
+@@ -21554,7 +21577,7 @@ arm_expand_prologue (void)
  	{
  	  /* If no coprocessor registers are being pushed and we don't have
  	     to worry about a frame pointer then push extra registers to
@@ -3757,7 +3766,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
  	     alter the frame layout, so is independent of the epilogue.  */
  	  int n;
  	  int frame;
-@@ -21672,8 +21695,8 @@ arm_expand_prologue (void)
+@@ -21682,8 +21705,8 @@ arm_expand_prologue (void)
  	 will prevent the scheduler from moving stores to the frame
  	 before the stack adjustment.  */
        if (frame_pointer_needed)
@@ -3768,7 +3777,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
      }
  
  
-@@ -23758,7 +23781,6 @@ thumb_pop (FILE *f, unsigned long mask)
+@@ -23768,7 +23791,6 @@ thumb_pop (FILE *f, unsigned long mask)
  {
    int regno;
    int lo_mask = mask & 0xFF;
@@ -3776,7 +3785,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
  
    gcc_assert (mask);
  
-@@ -23781,8 +23803,6 @@ thumb_pop (FILE *f, unsigned long mask)
+@@ -23791,8 +23813,6 @@ thumb_pop (FILE *f, unsigned long mask)
  
  	  if ((lo_mask & ~1) != 0)
  	    fprintf (f, ", ");
@@ -3785,7 +3794,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
  	}
      }
  
-@@ -24057,9 +24077,6 @@ thumb_exit (FILE *f, int reg_containing_return_addr)
+@@ -24067,9 +24087,6 @@ thumb_exit (FILE *f, int reg_containing_return_addr)
        move_to     = number_of_first_bit_set (regs_to_pop);
  
        asm_fprintf (f, "\tmov\t%r, %r\n", move_to, popped_into);
@@ -3795,7 +3804,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
        --pops_needed;
      }
  
-@@ -28252,17 +28269,32 @@ arm_expand_compare_and_swap (rtx operands[])
+@@ -28266,17 +28283,32 @@ arm_expand_compare_and_swap (rtx operands[])
        gcc_unreachable ();
      }
  
@@ -3974,7 +3983,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
    }
  )
  
-@@ -5027,7 +5076,31 @@
+@@ -5024,7 +5073,31 @@
    "TARGET_32BIT && TARGET_HARD_FLOAT && TARGET_VFP_DOUBLE"
    "")
  
@@ -4784,7 +4793,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
  ])
 --- a/src/gcc/config/i386/i386.c
 +++ b/src/gcc/config/i386/i386.c
-@@ -30300,6 +30300,15 @@ ix86_macro_fusion_pair_p (rtx_insn *condgen, rtx_insn *condjmp)
+@@ -30236,6 +30236,15 @@ ix86_macro_fusion_pair_p (rtx_insn *condgen, rtx_insn *condjmp)
    if (!any_condjump_p (condjmp))
      return false;
  
@@ -4918,7 +4927,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
  
 --- a/src/gcc/expr.c
 +++ b/src/gcc/expr.c
-@@ -8903,6 +8903,15 @@ expand_expr_real_2 (sepops ops, rtx target, machine_mode tmode,
+@@ -8904,6 +8904,15 @@ expand_expr_real_2 (sepops ops, rtx target, machine_mode tmode,
  	   end_sequence ();
  	   unsigned uns_cost = seq_cost (uns_insns, speed_p);
  	   unsigned sgn_cost = seq_cost (sgn_insns, speed_p);
@@ -4934,7 +4943,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
  	   if (uns_cost < sgn_cost || (uns_cost == sgn_cost && unsignedp))
  	     {
  	       emit_insn (uns_insns);
-@@ -9822,7 +9831,7 @@ expand_expr_real_1 (tree exp, rtx target, machine_mode tmode,
+@@ -9823,7 +9832,7 @@ expand_expr_real_1 (tree exp, rtx target, machine_mode tmode,
  	      if (targetm.gen_ccmp_first)
  		{
  		  gcc_checking_assert (targetm.gen_ccmp_next != NULL);
@@ -5115,7 +5124,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
    part->symbols++;
 --- a/src/gcc/lto/lto-symtab.c
 +++ b/src/gcc/lto/lto-symtab.c
-@@ -980,6 +980,42 @@ lto_symtab_merge_symbols (void)
+@@ -998,6 +998,42 @@ lto_symtab_merge_symbols (void)
  	      if (tgt)
  		node->resolve_alias (tgt, true);
  	    }
@@ -8328,7 +8337,7 @@ LANG=C git diff --no-renames 31fba1c2a66a5de659ba32ce3fb058feed0231b8 008c65a505
  	     || [istarget ia64-*-*]
  	     || ([istarget mips*-*-*]
  		 && [et-is-effective-target mips_msa]) } {
-@@ -7899,7 +7981,7 @@ proc check_effective_target_aarch64_tiny { } {
+@@ -7900,7 +7982,7 @@ proc check_effective_target_aarch64_tiny { } {
  # Create functions to check that the AArch64 assembler supports the
  # various architecture extensions via the .arch_extension pseudo-op.
  

@@ -26,7 +26,7 @@ Index: b/src/gcc/doc/install.texi
 ===================================================================
 --- a/src/gcc/doc/install.texi
 +++ b/src/gcc/doc/install.texi
-@@ -1617,12 +1617,12 @@ their runtime libraries should be built.
+@@ -1622,12 +1622,12 @@ their runtime libraries should be built.
  grep ^language= */config-lang.in
  @end smallexample
  Currently, you can use any of the following:
@@ -45,7 +45,7 @@ Index: b/src/gcc/doc/invoke.texi
 ===================================================================
 --- a/src/gcc/doc/invoke.texi
 +++ b/src/gcc/doc/invoke.texi
-@@ -1349,6 +1349,15 @@ called @dfn{specs}.
+@@ -1354,6 +1354,15 @@ called @dfn{specs}.
  Ada source code file containing a library unit body (a subprogram or
  package body).  Such files are also called @dfn{bodies}.
  
@@ -61,7 +61,7 @@ Index: b/src/gcc/doc/invoke.texi
  @c GCC also knows about some suffixes for languages not yet included:
  @c Pascal:
  @c @var{file}.p
-@@ -1384,6 +1393,7 @@ objective-c  objective-c-header  objecti
+@@ -1389,6 +1398,7 @@ objective-c  objective-c-header  objecti
  objective-c++ objective-c++-header objective-c++-cpp-output
  assembler  assembler-with-cpp
  ada

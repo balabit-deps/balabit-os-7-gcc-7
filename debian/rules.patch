@@ -14,11 +14,8 @@ series_file	?= $(patchdir)/series
 
 debian_patches = \
 	svn-updates \
-	$(if $(with_linaro_branch),gcc-linaro-revert-r253234) \
-	$(if $(with_linaro_branch),gcc-linaro-revert-r249596) \
 	$(if $(with_linaro_branch),gcc-linaro) \
 	$(if $(with_linaro_branch),gcc-linaro-no-macros) \
-	$(if $(with_linaro_branch),gcc-linaro-3718) \
 
 #	svn-updates \
 
@@ -87,8 +84,10 @@ debian_patches += \
 	thunderx2t99-pipe-sched \
 	pr84475 \
 	libffi-riscv \
-	pr84761 \
 	gcc-force-cross-layout \
+	gcc-search-prefixed-as-ld \
+	kfreebsd-decimal-float \
+	pr86139 \
 
 ifeq (,$(filter $(DEB_TARGET_ARCH),armhf armel))
   debian_patches += pr67165
@@ -151,6 +150,7 @@ debian_patches += ada-arm
 
   debian_patches += \
 	ada-gcc-name \
+	ada-verbose \
 	ada-library-project-files-soname
 
 	# FIXME: needs update

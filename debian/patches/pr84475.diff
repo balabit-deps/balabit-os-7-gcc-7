@@ -10,12 +10,12 @@ Index: b/src/gcc/config/riscv/linux.h
 ===================================================================
 --- a/src/gcc/config/riscv/linux.h
 +++ b/src/gcc/config/riscv/linux.h
-@@ -47,6 +47,8 @@ along with GCC; see the file COPYING3.  If not see
+@@ -47,6 +47,8 @@ along with GCC; see the file COPYING3.
  
  #define ICACHE_FLUSH_FUNC "__riscv_flush_icache"
  
 +#define CPP_SPEC "%{pthread:-D_REENTRANT}"
 +
  #define LINK_SPEC "\
+ -hash-style=gnu \
  -melf" XLEN_SPEC "lriscv \
- %{shared} \

@@ -1,3 +1,235 @@
+gcc-7 (7.3.0-27ubuntu1~18.04) bionic-proposed; urgency=medium
+
+  * SRU: LP: #1769657. Update the package to the current version in cosmic.
+
+ -- Matthias Klose <doko@ubuntu.com>  Thu, 26 Jul 2018 14:25:52 +0200
+
+gcc-7 (7.3.0-27ubuntu1) cosmic; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Fri, 20 Jul 2018 13:57:51 +0200
+
+gcc-7 (7.3.0-27) unstable; urgency=medium
+
+  * Update to SVN 20180720 (r262899) from the gcc-7-branch.
+    - Fix PR target/84168 (AArch64).
+
+  [ Nicolas Boulenguez ]
+  * ada-verbose patch: Make the ada build more verbose.
+  * Update the ada-gcc-name patch again. See #856274. Closes: #903694.
+
+  [ Matthias Klose ]
+  * Rewrite debian/README.cross.
+  * Build using gnat-6, avoiding the broken gnat in 7.3.0-26.
+
+ -- Matthias Klose <doko@debian.org>  Fri, 20 Jul 2018 12:55:24 +0200
+
+gcc-7 (7.3.0-26ubuntu1) cosmic; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Tue, 17 Jul 2018 14:03:53 +0200
+
+gcc-7 (7.3.0-26) unstable; urgency=medium
+
+  * Update to SVN 20180717 (r262814) from the gcc-7-branch.
+    - Fix PR target/84829, PR fortran/83184, PR fortran/86417,
+      PR fortran/83183, PR fortran/86325.
+
+  [ Nicolas Boulenguez ]
+  * Update the ada-gcc-name patch, not appending the suffix twice.
+    Addresses: #856274.
+
+ -- Matthias Klose <doko@debian.org>  Tue, 17 Jul 2018 12:20:13 +0200
+
+gcc-7 (7.3.0-25ubuntu1) cosmic; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Thu, 12 Jul 2018 10:28:13 +0200
+
+gcc-7 (7.3.0-25) unstable; urgency=medium
+
+  * Update to SVN 20180712 (r262577) from the gcc-7-branch.
+    - Fix PR c++/86291, PR libstdc++/86272, PR libstdc++/86127,
+      PR target/85904, PR libstdc++/85098, PR libstdc++/85671, PR hsa/86371,
+      PR libstdc++/83982, PR libstdc++/84087, PR target/86314 (x86),
+      PR c++/86378, PR c++/80290, PR c++/86291, PR fortran/82969,
+      PR fortran/86242.
+  * Enable decimal float support on kfreebsd-amd64. Closes: #897416.
+
+ -- Matthias Klose <doko@debian.org>  Thu, 12 Jul 2018 10:16:26 +0200
+
+gcc-7 (7.3.0-24ubuntu1) cosmic; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Tue, 26 Jun 2018 10:04:47 +0200
+
+gcc-7 (7.3.0-24) unstable; urgency=medium
+
+  * Update to SVN 20180626 (r262132) from the gcc-7-branch.
+    - Fix PR jit/85384, PR libstdc++/86138, PR c++/86210, PR c/85696,
+      PR c++/85662, PR c/85696, PR c/84999, PR c/84853, PR target/84786 (x86),
+      PR tree-optimization/85989, PR tree-optimization/86231,
+      PR middle-end/85878, PR target/85945, PR c++/86025, PR c++/85659,
+      PR web/85578, PR tree-optimization/85529, PR tree-optimization/85446,
+      PR rtl-optimization/85431, PR target/85430 (x86),
+      PR rtl-optimization/85300, PR tree-optimization/85257, PR debug/85252,
+      PR rtl-optimization/85167, PR target/85095, PR inline-asm/85022,
+      PR inline-asm/85034, PR inline-asm/85022, PR inline-asm/84941,
+      PR sanitizer/85018, PR debug/84875, PR c/84953, PR target/84990,
+      PR sanitizer/78651, PR sanitizer/78651, PR target/84899,
+      PR tree-optimization/84841, PR c++/79085, PR target/84860,
+      PR middle-end/84834, PR target/84827, PR target/84786, PR target/84772,
+      PR c++/84767, PR tree-optimization/84739, PR target/84700,
+      PR middle-end/82063, PR c++/85952, PR c/85696, PR c++/85662,
+      PR c++/84463, PR c++/85210, PR c++/85208, PR inline-asm/85172,
+      PR c++/85147, PR c++/85140, PR c++/84791, PR c++/85076, PR c++/85068,
+      PR c++/84961, PR c++/84874, PR c++/84222, PR c++/84076, PR c++/80598,
+      PR c++/84662, PR fortran/83118, PR fortran/85313, PR fortran/86110,
+      PR target/85424 (PPC), PR fortran/82972, PR fortran/83088,
+      PR fortran/85851.
+
+  [ Nicolas Boulenguez ]
+  * Remove Ludovic Brenta's work to let Ada build tools link with freshly
+    built libgnat.so, this is now handled by upstream testsuite.
+
+ -- Matthias Klose <doko@debian.org>  Tue, 26 Jun 2018 09:52:10 +0200
+
+gcc-7 (7.3.0-23ubuntu2) cosmic; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Sun, 17 Jun 2018 06:24:58 +0200
+
+gcc-7 (7.3.0-23) unstable; urgency=medium
+
+  * Update to SVN 20180617 (r261686) from the gcc-7-branch.
+    - Fix PR libstdc++/86169.
+  * Fix applying the powerpcspe patches.
+  * Fix running the gnat testsuite.
+
+ -- Matthias Klose <doko@debian.org>  Sun, 17 Jun 2018 09:34:13 +0200
+
+gcc-7 (7.3.0-22) unstable; urgency=medium
+
+  * Update to SVN 20180614 (r261597) from the gcc-7-branch.
+    - Fix PR sanitizer/84761, PR target/85755 (PPC), PR target/63177 (PPC),
+      PR middle-end/85588, PR middle-end/85567, PR tree-optimization/85597,
+      PR tree-optimization/85712, PR c++/85815, PR c++/86060, PR fortran/44491,
+      PR fortran/38351, PR fortran/63514, PR fortran/78278, PR fortran/86059,
+      PR fortran/85138, PR fortran/85996, PR fortran/86051, PR fortran/86045,
+      PR fortran/85641, PR fortran/85981, PR libgfortran/86070,
+      PR libgfortran/85840, PR fortran/86110.
+  * Fix PR middle-end/86139, taken from the gcc-8-branch. Addresses: #901290.
+
+ -- Matthias Klose <doko@debian.org>  Thu, 14 Jun 2018 16:31:52 +0200
+
+gcc-7 (7.3.0-21ubuntu1) cosmic; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Thu, 31 May 2018 13:27:08 +0200
+
+gcc-7 (7.3.0-21) unstable; urgency=medium
+
+  * Update to SVN 20180531 (r260992) from the gcc-7-branch.
+    - Fix PR sanitizer/86012, libsanitizer build on sparc64.
+
+ -- Matthias Klose <doko@debian.org>  Thu, 31 May 2018 13:22:03 +0200
+
+gcc-7 (7.3.0-20) unstable; urgency=medium
+
+  * Update to SVN 20180529 (r260895) from the gcc-7-branch.
+    - Fix PR sanitizer/85835, PR libstdc++/85812, PR libstdc++/67554,
+      PR libstdc++/82966, PR target/85903 (x86), PR target/85698 (PPC),
+      PR ipa/85655, PR fortran/85543, PR fortran/85779, PR fortran/85780,
+      PR fortran/85895, PR fortran/80657, PR fortran/82275, PR fortran/82923,
+      PR fortran/66694, PR fortran/82617, PR fortran/83149, PR fortran/83898,
+      PR fortran/84546, PR fortran/85542, PR fortran/68846, PR fortran/70864.
+  * gnat-*: Don't search the target dirs when calling dh_shlibdeps.
+
+ -- Matthias Klose <doko@debian.org>  Tue, 29 May 2018 15:02:12 +0200
+
+gcc-7 (7.3.0-19ubuntu2) cosmic; urgency=medium
+
+  * Update to SVN 20180514 (r260228) from the gcc-7-branch.
+    - Fix PR fortran/85542, PR fortran/68846, PR fortran/70864.
+  * gnat-*: Don't search the target dirs when calling dh_shlibdeps.
+
+ -- Matthias Klose <doko@ubuntu.com>  Mon, 14 May 2018 11:27:51 -0400
+
+gcc-7 (7.3.0-19ubuntu1) cosmic; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Sat, 12 May 2018 11:12:38 -0400
+
+gcc-7 (7.3.0-19) unstable; urgency=medium
+
+  * Update to SVN 20180512 (r260198) from the gcc-7-branch.
+    - Fix PR libstdc++/80506, PR c++/85646, PR fortran/85507,
+      PR fortran/70870, PR fortran/85521, PR fortran/85687.
+  * Fix name of the g++ multiarch include directory. Addresses: #898323.
+
+ -- Matthias Klose <doko@debian.org>  Sat, 12 May 2018 11:01:49 -0400
+
+gcc-7 (7.3.0-18ubuntu2) cosmic; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Sun, 06 May 2018 14:13:31 +0200
+
+gcc-7 (7.3.0-18) unstable; urgency=medium
+
+  * Update to SVN 20180506 (r259973) from the gcc-7-branch.
+    - Fix PR middle-end/84955, PR libstdc++/pr66689, PR libstdc++/68397,
+      PR libstdc++/84769, PR libstdc++/85632, PR fortran/81773,
+      PR fortran/83606.
+  * Update the Linaro support to the 7-2018.04 snapshot.
+  * Don't configure with --with-as and --with-ld, but search the triplet
+    prefixed as and ld in the same places as as/ld. Closes: #896057, #897896.
+  * Enable decimal float support on kfreebsd-amd64. Closes: #897416.
+
+ -- Matthias Klose <doko@debian.org>  Sun, 06 May 2018 13:25:30 +0200
+
+gcc-7 (7.3.0-17ubuntu1) cosmic; urgency=medium
+
+  * Update to SVN 20180502 (r259836) from the gcc-7-branch.
+    - Fix PR middle-end/84955, PR libstdc++/pr66689, PR libstdc++/68397,
+      PR fortran/81773, PR fortran/83606.
+  * Update the Linaro support to the 7-2018.04 snapshot.
+
+ -- Matthias Klose <doko@ubuntu.com>  Wed, 02 May 2018 15:31:26 +0200
+
+gcc-7 (7.3.0-17) unstable; urgency=medium
+
+  [ Matthias Klose ]
+  * Update to SVN 20180427 (r259697) from the gcc-7-branch.
+    - Fix PR libstdc++/85222, PR libstdc++/85442, PR target/85261 (ARM),
+      PR sanitizer/85389, PR c/84873, PR tree-optimization/85284,
+      PR middle-end/85244, PR tree-optimization/85168, PR lto/85405,
+      PR lto/85405, PR sanitizer/85081, PR ipa/84963, PR ipa/84658,
+      PR target/83660 (PPC), PR middle-end/85496, PR target/83969 (PPC).
+  * Update the gcc-foffload-default patch. LP: #1721355.
+  * Use the binutils in the build chroot if present.
+  * Don't use dwz for GCC backports.
+
+  [ Aurelien Jarno ]
+  * Enable logwatch on riscv64.
+
+ -- Matthias Klose <doko@debian.org>  Sat, 28 Apr 2018 15:20:26 +0200
+
 gcc-7 (7.3.0-16ubuntu3) bionic; urgency=medium
 
   * Update to SVN 20180415 (r259389) from the gcc-7-branch.
