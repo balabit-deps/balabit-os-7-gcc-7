@@ -13,15 +13,19 @@ series_file	?= $(patchdir)/series
 # which patches should be applied?
 
 debian_patches = \
-	svn-updates \
 	$(if $(with_linaro_branch),gcc-linaro) \
 	$(if $(with_linaro_branch),gcc-linaro-no-macros) \
+
+ifneq (,$(filter $(derivative),Ubuntu))
+  # LP: #1799955, the random header needs to be the same for M-A: same
+  debian_patches += \
+	$(if $(with_linaro_branch),,libstdc++-r250464)
+endif
 
 #	svn-updates \
 
 ifneq ($(GFDL_INVARIANT_FREE),yes)
   debian_patches += \
-	svn-doc-updates \
 	$(if $(with_linaro_branch),gcc-linaro-doc) \
 	rename-info-files \
 	gcc-fuse-ld-lld-doc \
@@ -85,9 +89,12 @@ debian_patches += \
 	pr84475 \
 	libffi-riscv \
 	gcc-force-cross-layout \
-	gcc-search-prefixed-as-ld \
 	kfreebsd-decimal-float \
-	pr86139 \
+	pr88856 \
+	pr89505 \
+
+# FIXME: see #915194
+#	gcc-search-prefixed-as-ld \
 
 ifeq (,$(filter $(DEB_TARGET_ARCH),armhf armel))
   debian_patches += pr67165
