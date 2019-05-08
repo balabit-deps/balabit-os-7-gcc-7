@@ -1,3 +1,9 @@
+gcc-7 (7.4.0-1ubuntu1~18.04.1) bionic; urgency=medium
+
+  * No-change rebuild strictly against -security only (LP: #1828171).
+
+ -- Łukasz 'sil2100' Zemczak <lukasz.zemczak@ubuntu.com>  Wed, 08 May 2019 17:53:03 +0200
+
 gcc-7 (7.4.0-1ubuntu1~18.04) bionic-proposed; urgency=medium
 
   * SRU: LP: #1814369.
