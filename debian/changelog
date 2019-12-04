@@ -1,3 +1,378 @@
+gcc-7 (7.5.0-3ubuntu1~18.04) bionic-proposed; urgency=medium
+
+  * SRU: LP: #1848319.
+  * Backport GCC 7.5.0 to bionic.
+
+ -- Matthias Klose <doko@ubuntu.com>  Wed, 04 Dec 2019 15:25:41 +0100
+
+gcc-7 (7.5.0-3ubuntu1) focal; urgency=medium
+
+  * Rebuild for isl soname change.
+
+ -- Matthias Klose <doko@ubuntu.com>  Mon, 02 Dec 2019 12:42:42 +0100
+
+gcc-7 (7.5.0-3) unstable; urgency=medium
+
+  * Rebuild for isl soname change.
+
+ -- Matthias Klose <doko@ubuntu.com>  Mon, 02 Dec 2019 12:39:03 +0100
+
+gcc-7 (7.5.0-2ubuntu1) focal; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Thu, 28 Nov 2019 11:14:21 +0100
+
+gcc-7 (7.5.0-2) unstable; urgency=medium
+
+  * Stop building -dbg packages, keep building the libstc++6-7-dbg package
+    containing just the libstdc++ debug build.
+
+ -- Matthias Klose <doko@debian.org>  Thu, 28 Nov 2019 11:08:55 +0100
+
+gcc-7 (7.5.0-1ubuntu1) focal; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Thu, 14 Nov 2019 10:17:18 +0100
+
+gcc-7 (7.5.0-1) unstable; urgency=medium
+
+  * GCC 7.5.0 release.
+  * Refresh patches.
+
+ -- Matthias Klose <doko@debian.org>  Thu, 14 Nov 2019 10:01:51 +0100
+
+gcc-7 (7.4.0-15ubuntu1) focal; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Tue, 05 Nov 2019 14:07:12 +0100
+
+gcc-7 (7.4.0-15) unstable; urgency=medium
+
+  * GCC 7.5.0 release candidate 1.
+  * Update to SVN 20191105 (r277823) from the gcc-7-branch.
+    - Fix PR target/91275 (PPC), PR libstdc++/92143, PR target/88167 (ARM),
+      PR debug/91887, PR tree-optimization/91812, PR tree-optimization/92131,
+      PR target/86040 (AVR), PR rtl-optimization/89721, PR target/89400 (ARM),
+      PR target/88630 (SH), PR ada/91995, PR fortran/86248, PR fortran/69455.
+
+ -- Matthias Klose <doko@debian.org>  Tue, 05 Nov 2019 14:04:40 +0100
+
+gcc-7 (7.4.0-14ubuntu2) eoan; urgency=medium
+
+  * Update to SVN 20191008 (r276439) from the gcc-7-branch.
+    - Fix PR target/91275 (PPC).
+
+ -- Matthias Klose <doko@ubuntu.com>  Tue, 08 Oct 2019 17:24:03 +0200
+
+gcc-7 (7.4.0-14ubuntu1) eoan; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Wed, 02 Oct 2019 08:02:03 +0200
+
+gcc-7 (7.4.0-14) unstable; urgency=medium
+
+  * Update to SVN 20191002 (r276439) from the gcc-7-branch.
+    - Fix PR fortran/91557, PR target/86712 (SH), PR target/88562 (SH),
+      PR target/82920 (Darwin), PR target/82920 (x86), PR target/80672 (SH),
+      PR target/85993 (SH), PR rtl-optimization/88751, PR fortran/91557.
+  * Bump standards version.
+
+ -- Matthias Klose <doko@debian.org>  Wed, 02 Oct 2019 07:48:40 +0200
+
+gcc-7 (7.4.0-13) unstable; urgency=medium
+
+  * Update to SVN 20190912 (r275684) from the gcc-7-branch.
+    - Fix PR rtl-optimization/89795, PR fortran/91686.
+  * Upload without binary packages after the accidential gcc-7-source
+    removal from the archive.
+
+ -- Matthias Klose <doko@debian.org>  Thu, 12 Sep 2019 13:33:19 +0200
+
+gcc-7 (7.4.0-12ubuntu2) eoan; urgency=medium
+
+  * Re-sync with the real 7.4.0-12 upload.
+
+ -- Matthias Klose <doko@ubuntu.com>  Mon, 09 Sep 2019 19:36:01 +0200
+
+gcc-7 (7.4.0-12ubuntu1) eoan; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Sun, 01 Sep 2019 02:33:04 +0200
+
+gcc-7 (7.4.0-12) unstable; urgency=medium
+
+  * Update to SVN 20190919 (r275519) from the gcc-7-branch.
+    - Fix PR libgomp/90585, PR target/90811, PR middle-end/89002, PR c/90474,
+      PR sanitizer/90954, PR c++/90108, PR c/89933, PR c/89734,
+      PR tree-optimization/90637, PR tree-optimization/90930,
+      PR middle-end/90194, PR middle-end/90213, PR tree-optimization/90071,
+      PR middle-end/89677, PR target/91481 (PPC), PR target/91150 (x86),
+      PR middle-end/78884, PR rtl-optimization/90756, PR c/90760,
+      PR middle-end/90139, PR target/90811 (nvptx), PR fortran/90329,
+      PR fortran/90329, PR target/90187 (x86), PR tree-optimization/90208,
+      PR rtl-optimization/90082, PR tree-optimization/90090,
+      PR tree-optimization/89998. PR c/89872, PR middle-end/89621,
+      PR target/89752, PR rtl-optimization/89768, PR target/89752,
+      PR target/89726 (x86), PR debug/89704, PR rtl-optimization/89679,
+      PR tree-optimization/89703, PR middle-end/88588, PR middle-end/89663,
+      PR c/88568, PR target/89587 (PPC), PR middle-end/89590, PR c/89520,
+      PR middle-end/89412, PR middle-end/89091, PR middle-end/88074,
+      PR middle-end/89415, PR middle-end/88074, PR target/89361 (S390),
+      PR tree-optimization/89278, PR other/89342, PR rtl-optimization/89354,
+      PR tree-optimization/89314, PR middle-end/89303, PR middle-end/89281,
+      PR middle-end/89246, PR target/88861, PR rtl-optimization/89234,
+      PR target/89188, PR rtl-optimization/89195, PR target/89186,
+      PR middle-end/87887, PR tree-optimization/88107, PR c++/66676,
+      PR ipa/89104, PR middle-end/89002, PR target/87214 (x86),
+      PR rtl-optimization/49429, PR target/49454, PR rtl-optimization/86334,
+      PR target/88906, PR rtl-optimization/88870, PR c/88568, PR target/88620,
+      PR middle-end/82564, PR target/88594 (x86), PR debug/88644,
+      PR middle-end/85594, PR middle-end/88553, PR rtl-optimization/88563,
+      PR rtl-optimization/88470, PR rtl-optimization/88416, PR target/85593,
+      PR tree-optimization/87895, PR middle-end/87647, PR middle-end/85488,
+      PR middle-end/87649, PR target/91533, PR tree-optimization/91510,
+      PR rtl-optimization/91347, PR driver/91172, PR target/89222 (ARM),
+      PR rtl-optimization/91136, PR tree-optimization/90949, PR ipa/90939,
+      PR middle-end/64242, PR target/90530 (PA), PR target/90547 (x86),
+      PR target/89765 (PPC), PR target/86215, PR target/80556, PR target/61976,
+      PR target/89424 (PPC), PR middle-end/89037, PR pch/90326, PR c++/90950,
+      PR c++/90108, PR c/89933, PR sanitizer/89869, PR c++/89796, PR c++/60702,
+      PR c++/89767, PR c++/89512, PR c++/87148, PR c++/89403, PR c++/89187,
+      PR c++/88976, PR c++/88949, PR c++/86669, PR c++/87506, PR c++/88103,
+      PR c++/88181, PR fortran/90329, PR fortran/89651, PR fortran/83246,
+      PR fortran/89084, PR fortran/88902, PR fortran/88377, PR fortran/87725,
+      PR libgomp/90585, PR target/90811, PR middle-end/89002,
+      PR middle-end/89303, PR libstdc++/91308, PR libstdc++/51333,
+      PR libstdc++/90770, PR c/90474, PR sanitizer/90954, PR pch/61250,
+      PR c++/90108, PR c/89933, PR c/89734, PR bootstrap/87030,
+      PR tree-optimization/90328, PR middle-end/89578,
+      PR tree-optimization/87609, PR tree-optimization/87609,
+      PR tree-optimization/88149, PR tree-optimization/90006,
+      PR middle-end/89698, PR tree-optimization/88903, PR middle-end/88448,
+      PR middle-end/88415, PR tree-optimization/88030, PR middle-end/89572,
+      PR tree-optimization/87929, PR tree-optimization/89710,
+      PR tree-optimization/89296, PR tree-optimization/89135,
+      PR tree-optimization/91200, PR middle-end/91162, PR middle-end/91131,
+      PR tree-optimization/91126, PR tree-optimization/90278,
+      PR tree-optimization/90020, PR tree-optimization/91137,
+      PR middle-end/89392, PR target/87853 (x86), PR target/91704 (x86).
+  * libstdc++: Fix GCC_LINUX_FUTEX to work with C99 compilers, taken from
+    the trunk.
+
+ -- Matthias Klose <doko@debian.org>  Mon, 09 Sep 2019 17:43:25 +0200
+
+gcc-7 (7.4.0-11ubuntu1) eoan; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Tue, 20 Aug 2019 18:12:12 +0200
+
+gcc-7 (7.4.0-11) unstable; urgency=medium
+
+  * Update to SVN 20190820 (r274750) from the gcc-7-branch.
+    - Fix PR lto/90924, PR rtl-optimization/91347, PR driver/91172,
+      PR target/89222 (ARM), PR rtl-optimization/91136,
+      PR tree-optimization/90949, PR fortran/90786, PR fortran/90813.
+  * Update the Linaro support to the 7-2019.01 snapshot.
+  * Bump standards version.
+
+ -- Matthias Klose <doko@debian.org>  Tue, 20 Aug 2019 18:09:50 +0200
+
+gcc-7 (7.4.0-10ubuntu2) eoan; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+  * Update the Linaro support to the 7-2019.01 snapshot.
+
+ -- Matthias Klose <doko@ubuntu.com>  Fri, 28 Jun 2019 12:54:48 +0200
+
+gcc-7 (7.4.0-10) unstable; urgency=medium
+
+  * Update to SVN 20190628 (r272781) from the gcc-7-branch.
+    - Fix PR libstdc++/89466, PR libstdc++/88740, PR libstdc++/90220,
+      PR libstdc++/90220, PR libstdc++/90220 (partial), PR libstdc++/90105,
+      PR libstdc++/89629, PR middle-end/64242, PR target/90530 (PARISC),
+      PR target/90547 (x86), PR target/89765 (PPC), PR target/86215 (x86),
+      PR target/80556 (x86), PR target/61976 (PPC), PR target/89424 (PPC),
+      PR middle-end/89037, PR target/86538 (AArch64), PR target/90075 (AArch64),
+      PR target/37369 (AArch64), PR fortran/90937, PR fortran/90744,
+      PR bootstrap/89864, PR libstdc++/90634, PR ipa/90939.
+  * Fix two lintian warnings.
+
+ -- Matthias Klose <doko@debian.org>  Fri, 28 Jun 2019 12:00:29 +0200
+
+gcc-7 (7.4.0-9ubuntu1) eoan; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Thu, 25 Apr 2019 11:38:22 +0200
+
+gcc-7 (7.4.0-9) unstable; urgency=medium
+
+  * Update to SVN 20190425 (r270566) from the gcc-7-branch.
+    - Fix PR target/87532 (PPC), PR target/86952 (x86),
+      PR target/90024 (ARM), PR target/89945 (x86), PR lto/89896,
+      PR web/87829, PR tree-optimization/89253, PR middle-end/89223,
+      PR tree-optimization/88739, PR fortran/87352, PR fortran/89904,
+      PR fortran/83515, PR fortran/85797, PR libgfortran/79540.
+  * Mark gcc-7-source as M-A: foreign.
+
+ -- Matthias Klose <doko@debian.org>  Thu, 25 Apr 2019 11:30:21 +0200
+
+gcc-7 (7.4.0-8ubuntu1) disco; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Tue, 26 Mar 2019 13:23:00 +0100
+
+gcc-7 (7.4.0-8) unstable; urgency=medium
+
+  * Update to SVN 20190326 (r269936) from the gcc-7-branch.
+    - Fix PR target/89523 (x86), PR lto/87525, PR target/84272 (AArch64),
+      PR lto/88147, PR c++/89585, PR fortran/84394, PR fortran/66089,
+      PR fortran/66695, PR fortran/77746, PR fortran/79485, PR fortran/87673,
+      PR fortran/71544, PR fortran/87734, PR c++/89383, PR middle-end/84552,
+      PR tree-optimization/86554, PR tree-optimization/88105,
+      PR tree-optimization/89505, PR fortran/71861, PR fortran/68009.
+  * Fix PR tree-optimization/89505, taken from the gcc-8 branch.
+  * Fix package descriptions for cross packages.
+  * Fix cross building gdc (Helmut Grohne). Addresses: #925040.
+  * Fix PR jit/87808: Don't rely on the gcc driver. Let libgccjit0
+    depend on binutils and libgcc-dev. Addresses: #911668.
+  * Fix stripping the gcc-hppa64 package.
+
+ -- Matthias Klose <doko@debian.org>  Tue, 26 Mar 2019 13:21:53 +0100
+
+gcc-7 (7.4.0-7ubuntu1) disco; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Sat, 09 Mar 2019 08:55:38 +0100
+
+gcc-7 (7.4.0-7) unstable; urgency=medium
+
+  * Update to SVN 20190308 (r269489) from the gcc-7-branch.
+    - Fix PR target/89397 (x86), PR ada/81956, PR fortran/72714,
+      PR fortran/77583, PR fortran/87689.
+  * Fix PR c++/89585, taken from the gcc-8 branch.
+
+ -- Matthias Klose <doko@debian.org>  Sat, 09 Mar 2019 08:52:02 +0100
+
+gcc-7 (7.4.0-6ubuntu1) disco; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Mon, 25 Feb 2019 13:47:05 +0100
+
+gcc-7 (7.4.0-6) unstable; urgency=medium
+
+  * Update to SVN 20190225 (r269187) from the gcc-7-branch.
+    - Fix PR libstdc++/89446, PR rtl-optimization/89242, PR ipa/89009,
+      PR target/88648 (ARM), PR fortran/88117, PR fortran/71066,
+      PR fortran/89077, PR fortran/71723.
+
+ -- Matthias Klose <doko@debian.org>  Mon, 25 Feb 2019 13:37:30 +0100
+
+gcc-7 (7.4.0-5ubuntu1) disco; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Sat, 09 Feb 2019 23:19:08 +0100
+
+gcc-7 (7.4.0-5) unstable; urgency=medium
+
+  * Update to SVN 20190209 (r268732) from the gcc-7-branch.
+    - Fix PR target/88856 (S390X). Addresses: #915738. LP: #1815057.
+    - Fix PR target/85755 (PPC), PR target/87064 (PPC), PR target/87064 (PPC),
+      PR fortran/67679, PR fortran/88393, PR libfortran/88678,
+      PR target/88343 (PPC).
+
+ -- Matthias Klose <doko@debian.org>  Sat, 09 Feb 2019 23:11:56 +0100
+
+gcc-7 (7.4.0-4ubuntu1) disco; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Sun, 03 Feb 2019 11:06:27 +0100
+
+gcc-7 (7.4.0-4) unstable; urgency=medium
+
+  * Update to SVN 20190203 (r268483) from the gcc-7-branch.
+    - Fix PR rtl-optimization/89115 (compile time part). Addresses: #918329.
+    - Fix PR tree-optimization/89008, PR fortran/88298, PR fortran/57048.
+  * Turn on profiled bootstrap on x86_64, ARM32, AArch64, PPC64 and s390x
+    architectures for native builds.
+
+ -- Matthias Klose <doko@debian.org>  Sun, 03 Feb 2019 10:54:14 +0100
+
+gcc-7 (7.4.0-3ubuntu2) disco; urgency=medium
+
+  * Update to SVN 20190202 (r268474) from the gcc-7-branch.
+    - Fix PR rtl-optimization/89115 (compile time part). Addresses: #918329.
+    - Fix PR tree-optimization/89008.
+  * Turn on profiled bootstrap on x86, ARM32, AArch64, PPC64 and s390x
+    architectures for native builds.
+
+ -- Matthias Klose <doko@ubuntu.com>  Sat, 02 Feb 2019 11:15:49 +0100
+
+gcc-7 (7.4.0-3ubuntu1) disco; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Wed, 30 Jan 2019 22:28:16 +0100
+
+gcc-7 (7.4.0-3) unstable; urgency=medium
+
+  * Update to SVN 20190130 (r268403) from the gcc-7-branch.
+    - Fix PR libstdc++/64883, PR libstdc++/70694, PR c/88720, PR c/88726,
+      PR inline-asm/55681, PR target/88948, PR target/88998 (x86),
+      PR tree-optimization/89008, PR target/88938 (x86), PR ipa/88214,
+      PR target/84010 (SPARC), PR target/88343 (PPC), PR c++/87380,
+      PR target/78444 (x86), PR target/81685 (darwin), PR target/88418 (x86),
+      PR target/88213 (PPC), PR fortran/56386, PR fortran/58906,
+      PR fortran/77385, PR fortran/80260, PR fortran/82077, PR fortran/81849,
+      PR fortran/35031, PR fortran/82550, PR fortran/77703, PR fortran/85798,
+      PR fortran/85544, PR fortran/88169, PR libfortran/88776.
+  * Bump standards version.
+
+ -- Matthias Klose <doko@debian.org>  Wed, 30 Jan 2019 22:14:13 +0100
+
+gcc-7 (7.4.0-2ubuntu1) disco; urgency=medium
+
+  * Merge with Debian; remaining changes:
+    - Build from upstream sources.
+
+ -- Matthias Klose <doko@ubuntu.com>  Tue, 18 Dec 2018 14:31:16 +0100
+
+gcc-7 (7.4.0-2) unstable; urgency=medium
+
+  * Update to SVN 20181218 (r267229) from the gcc-7-branch.
+    - Fix PR fortran/88269, PR fortran/88205, PR fortran/88206,
+      PR fortran/88228, PR libfortran/88137, PR rtl-optimization/88253,
+      PR rtl-optimization/88001, PR target/87496 (PPC), PR fortran/88138,
+      PR fortran/88155, PR fortran/88249.
+  * gcc-7-source: Depend on lsb-release.
+
+ -- Matthias Klose <doko@debian.org>  Tue, 18 Dec 2018 13:18:08 +0100
+
 gcc-7 (7.4.0-1ubuntu1~18.04.1) bionic; urgency=medium
 
   * No-change rebuild strictly against -security only (LP: #1828171).

@@ -202,9 +202,6 @@ ifneq ($(DEB_BUILD_GNU_TYPE),$(DEB_HOST_GNU_TYPE))
     build_type = cross-build-cross
   else
     # cross building the native compiler
-    ifeq (,$(filter $(distrelease),lenny etch squeeze dapper hardy jaunty karmic lucid))
-      with_sysroot = /
-    endif
     build_type = cross-build-native
   endif
 else
@@ -218,10 +215,6 @@ else
     build_type = build-cross
   else
     # native build
-    # first ones are wheezy and maverick
-    ifeq (,$(filter $(distrelease),lenny etch squeeze dapper hardy jaunty karmic lucid))
-      with_sysroot = /
-    endif
     build_type = build-native
   endif
 endif
@@ -323,6 +316,16 @@ ifneq ($(findstring gccdebug, $(DEB_BUILD_OPTIONS)),)
   with_bootstrap := off
   DEB_BUILD_OPTIONS := $(DEB_BUILD_OPTIONS) nostrip
   export DEB_BUILD_OPTIONS
+endif
+
+ifneq ($(trunk_build),yes)
+  ifeq ($(build_type),build-native)
+    ifeq (,$(DEB_STAGE))
+      ifneq (,$(filter $(DEB_HOST_ARCH), amd64 armhf arm64 ppc64el s390x))
+        with_bootstrap := profiled
+      endif
+    endif
+  endif
 endif
 
 # -------------------------------------------------------------------
@@ -450,6 +453,19 @@ endif
 #with_common_libs := yes
 # XXX: should with_common_libs be "yes" only if this is the default compiler
 # version on the targeted arch?
+
+# build -dbg packages (with_dbg is empty when -dbg package are not built)
+ifneq (,$(filter $(distrelease),wheezy jessie stretch buster precise xenial bionic cosmic disco eoan))
+  with_dbg = yes
+else
+  ifeq ($(derivative),Ubuntu)
+    v_dbg = 7.5.0-2ubuntu1
+  else ifeq ($(derivative),Debian)
+    v_dbg = 7.5.0-2
+  else
+    $(error unknown version for -dbgsym package migration)
+  endif
+endif
 
 # is this a multiarch-enabled build?
 ifeq (,$(filter $(distrelease),lenny etch squeeze dapper hardy jaunty karmic lucid maverick))
